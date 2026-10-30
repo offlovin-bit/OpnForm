@@ -7,8 +7,8 @@
     <!-- Name -->
     <text-input
       name="name"
-      label="Name"
-      placeholder="Your name"
+      label="Nombre"
+      placeholder="Tu nombre"
       required
     />
 
@@ -18,7 +18,7 @@
       label="Email"
       required
       :disabled="disableEmail"
-      placeholder="Your email address"
+      placeholder="Tu email"
     />
 
     <select-input
@@ -33,9 +33,9 @@
     <!-- Password -->
     <text-input
       native-type="password"
-      placeholder="Enter password"
+      placeholder="Elige una contraseña"
       name="password"
-      label="Password"
+      label="Contraseña"
       required
       @focus="isPasswordFocused = true"
       @blur="isPasswordFocused = false"
@@ -49,9 +49,9 @@
     <text-input
       native-type="password"
       required
-      placeholder="Enter confirm password"
+      placeholder="Repítela"
       name="password_confirmation"
-      label="Confirm Password"
+      label="Repite la contraseña"
     />
 
     <!-- Captcha -->
@@ -103,7 +103,7 @@
       size="lg"
       :loading="form.busy"
       type="submit"
-      label="Create account"
+      label="Crear mi usuario"
     />
 
     <template v-if="useFeatureFlag('services.google.auth') && !useFeatureFlag('self_hosted') && !isSetup">
@@ -124,19 +124,19 @@
     </template>
 
     <p v-if="!isSetup" class="text-neutral-500 mt-2 text-sm text-center">
-      Already have an account?
+      ¿Ya tienes usuario?
       <a
         v-if="isQuick"
         href="#"
         class="font-medium ml-1"
         @click.prevent="$emit('openLogin')"
-      >Log In</a>
+      >Entra</a>
       <NuxtLink
         v-else
         :to="{ name: 'login' }"
         class="font-semibold ml-1"
       >
-        Log In
+        Entra
       </NuxtLink>
     </p>
   </VForm>

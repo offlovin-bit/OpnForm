@@ -23,7 +23,7 @@
         name="email"
         label="Email"
         required
-        placeholder="Your email address"
+        placeholder="Tu email"
         @blur="checkOidcOptions"
       />
 
@@ -54,9 +54,9 @@
         v-if="showPasswordField"
         ref="passwordInputRef"
         native-type="password"
-        placeholder="Your password"
+        placeholder="Tu contraseña"
         name="password"
-        label="Password"
+        label="Contraseña"
         required
         @input-filled="login"
       />
@@ -68,7 +68,7 @@
           class="w-full md:w-1/2"
           name="remember"
           size="small"
-          label="Remember me"
+          label="Recordarme"
         />
 
         <div class="w-full md:w-1/2 text-right">
@@ -77,7 +77,7 @@
             class="text-xs hover:underline text-neutral-500 sm:text-sm hover:text-neutral-700"
             @click.prevent="showForgotModal = true"
           >
-            Forgot your password?
+            ¿Has olvidado la contraseña?
           </a>
         </div>
       </div>
@@ -192,7 +192,7 @@ const submitButtonLabel = computed(() => {
     return `Try again in ${oidcRetryAfterSeconds.value}s`
   }
 
-  return isOidcSignIn.value ? 'Continue' : 'Log in to continue'
+  return isOidcSignIn.value ? 'Continuar' : 'Entrar'
 })
 
 const clearOidcRateLimitTimer = () => {
@@ -376,7 +376,7 @@ const showOAuthError = (error) => {
   if (error.response?.status === 422 && error.response?.data?.message) {
     useAlert().error(error.response.data.message)
   } else {
-    useAlert().error("Sign-in failed. Please try again.")
+    useAlert().error("No se ha podido entrar. Inténtalo de nuevo.")
   }
 }
 

@@ -22,4 +22,10 @@ Cambios (30-oct-2026, tercera tanda):
 - `api/app/Service/License/SelfHostedSeatLimitService.php`: sin tope de usuarios en la instalación (código AGPLv3).
 - Marca por espacio: si `workspace.settings.marca.color` existe, el panel usa ese color (`client/components/offlovin/OflMarcaWorkspace.vue`, montado en `app.vue`), y los formularios nuevos del espacio heredan `workspace.settings.marca.formulario` (`client/pages/forms/create/index.vue`).
 
+Cambios (30-oct-2026, cuarta tanda):
+
+- Login y registro con la marca de offlovin.com y en español (`client/components/offlovin/OflAuthLayout.vue`, `pages/login.vue`, `pages/register.vue`, textos de `LoginForm.vue` y `RegisterForm.vue`).
+- Email de invitación propio, sencillo y en español (`api/app/Mail/UserInvitationEmail.php`, `api/resources/views/mail/user/invitacion*.blade.php`).
+- Desde aquí la API también se compila desde esta rama (imagen `offlovin/opnform-api`).
+
 No se usa ni se modifica nada de `api/app/Enterprise`, que tiene su propia licencia.
