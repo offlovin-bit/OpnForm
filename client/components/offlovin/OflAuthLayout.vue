@@ -1,17 +1,13 @@
 <template>
-  <!-- OFFLOVIN: login y registro con la marca de offlovin.com (carbón, Figtree e Instrument Serif) -->
+  <!-- OFFLOVIN: login y registro con la marca de offlovin.com (carbón y Figtree) y fondo de dithering animado -->
   <div class="ofl-auth">
     <aside class="ofl-auth-marca">
+      <ClientOnly>
+        <OflDither />
+      </ClientOnly>
       <NuxtLink to="/" class="ofl-auth-logo">
         <img src="/offlovin/logo.png" alt="OFFLOVIN">
       </NuxtLink>
-      <p class="ofl-auth-lema">
-        <span>Tus formularios y respuestas,</span>
-        <span class="ofl-auth-serif">en un solo sitio.</span>
-      </p>
-      <p class="ofl-auth-pie">
-        Formularios de OFFLOVIN
-      </p>
     </aside>
 
     <main class="ofl-auth-panel">
@@ -23,11 +19,13 @@
 </template>
 
 <script setup>
+import OflDither from '~/components/offlovin/OflDither.vue'
+
 useHead({
   link: [
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Instrument+Serif&display=swap' }
+    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap' }
   ]
 })
 </script>
@@ -48,29 +46,23 @@ useHead({
 .ofl-auth ::selection { background: #bee6f5; color: var(--ofl-tinta); }
 
 .ofl-auth-marca {
+  position: relative;
+  overflow: hidden;
+  height: 184px;
   background: var(--ofl-carbon);
   color: #ffffff;
-  padding: 24px 24px 32px;
+  padding: 24px;
+}
+.ofl-auth-logo {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
 }
 .ofl-auth-logo img {
   height: 26px;
   width: auto;
   filter: invert(1);
 }
-.ofl-auth-lema {
-  margin-top: 36px;
-  font-size: 1.875rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  font-weight: 400;
-}
-.ofl-auth-lema span { display: block; }
-.ofl-auth-serif {
-  font-family: "Instrument Serif", ui-serif, Georgia, serif;
-  font-size: 1.08em;
-  letter-spacing: -0.01em;
-}
-.ofl-auth-pie { display: none; }
 
 .ofl-auth-panel {
   display: flex;
@@ -88,24 +80,9 @@ useHead({
     position: sticky;
     top: 0;
     height: 100svh;
-    display: flex;
-    flex-direction: column;
     padding: 44px 56px;
   }
   .ofl-auth-logo img { height: 30px; }
-  .ofl-auth-lema {
-    margin-top: auto;
-    font-size: clamp(2.75rem, 3.4vw, 3.75rem);
-    line-height: 1.04;
-    max-width: 12em;
-    text-wrap: balance;
-  }
-  .ofl-auth-pie {
-    display: block;
-    margin-top: 48px;
-    font-size: 0.875rem;
-    color: rgb(255 255 255 / 0.55);
-  }
   .ofl-auth-panel {
     align-items: center;
     padding: 64px 48px;
