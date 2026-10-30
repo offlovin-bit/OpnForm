@@ -137,10 +137,7 @@
 
     </div>
 
-    <!-- Branding button -->
-    <div v-if="!form.no_branding && showBranding" class="fixed z-10 bottom-4 right-4">
-      <PoweredBy :color="form.color" />
-    </div>
+    <!-- OFFLOVIN: sin el sello «Made with OpnForm» -->
   </form>
 </template>
 
@@ -149,7 +146,6 @@ import OpenFormButton from './OpenFormButton.vue'
 import BlockMediaLayout from './components/BlockMediaLayout.vue'
 import OpenFormField from './OpenFormField.vue'
 import FormProgressbar from './FormProgressbar.vue'
-import PoweredBy from '~/components/pages/forms/show/PoweredBy.vue'
 import { FormMode } from '~/lib/forms/FormModeStrategy.js'
 import { useIsIframe } from '~/composables/useIsIframe'
 
