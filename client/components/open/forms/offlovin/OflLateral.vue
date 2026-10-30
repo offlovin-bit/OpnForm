@@ -50,8 +50,9 @@
   <div class="ofl-movil" aria-hidden="true">
     <img v-if="form.logo_picture" :src="form.logo_picture" alt="" class="ofl-logo">
     <p class="ofl-movil-seccion">
-      <span class="ofl-movil-nombre">{{ seccionActual?.nombre || form.title }}</span>
+      <span v-if="seccionActual" class="ofl-movil-nombre">{{ seccionActual.nombre }}</span>
       <span v-if="seccionActual" class="ofl-movil-cuenta">{{ indiceActual + 1 }} de {{ secciones.length }}</span>
+      <span v-else class="ofl-movil-cuenta">{{ restanTexto }}</span>
     </p>
     <div class="ofl-movil-barra">
       <div class="ofl-barra-relleno" :style="{ width: porcentaje + '%' }" />
@@ -412,6 +413,20 @@ const irA = (seccion) => {
   font-weight: 500;
   letter-spacing: 0.01em;
 }
+/* Flechas de navegación: discretas, redondas y en la tinta de la marca */
+.ofl-shell [aria-label="Form controls"] button {
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  background: var(--ofl-fondo) !important;
+  color: var(--ofl-tinta) !important;
+  box-shadow: inset 0 0 0 1px #d3d9e1;
+  transition: background-color 160ms ease-out;
+}
+.ofl-shell [aria-label="Form controls"] button:hover:not(:disabled) { background: #eef1f5 !important; }
+.ofl-shell [aria-label="Form controls"] button:disabled { opacity: 0.35; }
+.ofl-shell [aria-label="Form controls"] button:focus-visible { outline: 2px solid var(--ofl-tinta); outline-offset: 2px; }
 @media (min-width: 1024px) {
   .ofl-shell .input-label { font-size: 1.625rem; }
 }
