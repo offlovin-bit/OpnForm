@@ -67,7 +67,7 @@ const unavailable = computed(() => {
 const tooltipText = computed(() => {
   if (props.integration.coming_soon) return "This integration is coming soon"
   if (props.integration.requires_upgrade)
-    return "You need to upgrade your plan to use this integration."
+    return "This integration is not available." // OFFLOVIN: no upgrade wording
   return null
 })
 

@@ -21,7 +21,8 @@
         </div>
 
         <LazyVendorClarity v-if="vendorsReady && authStore.token && config.public.clarityProjectId" />
-        <LazyVendorFeatureBase v-if="vendorsReady && authStore.token && config.public.featureBaseOrganization" />
+        <!-- OFFLOVIN: no FeatureBase changelog/feedback widget -->
+        <LazyVendorFeatureBase v-if="false && vendorsReady && authStore.token && config.public.featureBaseOrganization" />
         <LazyQuickRegister v-if="appStore.quickLoginModal || appStore.quickRegisterModal || appStore.isUnauthorizedError" />
       </ClientOnly>
     </div>
@@ -43,19 +44,17 @@ const { locale } = useI18n()
 const isPublicFormPage = computed(() => route.name === 'forms-slug')
 
 // SEO and head configuration
+// OFFLOVIN: no OpnForm default title, description or social preview image
 useOpnSeoMeta({
-  title: "Free Form Builder with Unlimited Submissions",
-  description:
-    "Build beautiful, powerful forms for free with OpnForm. Unlimited submissions, rich features, and seamless integrations — fully open-source and easy to use.",
-  ogImage: "/img/social-preview.jpg",
   robots: () => {
     return config.public.env === "production" ? null : "noindex, nofollow"
   },
 })
 
 useHead({
+  // OFFLOVIN: tab title suffix
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} - OpnForm` : "OpnForm"
+    return titleChunk ? `${titleChunk} - OFFLOVIN` : "OFFLOVIN"
   },
   meta: [
     {
@@ -71,7 +70,7 @@ useHead({
     {
       rel: 'apple-touch-icon',
       type: 'image/png',
-      href: '/favicon.ico'
+      href: '/offlovin/icon.png' // OFFLOVIN: app icon
     }
   ],
   htmlAttrs: () => ({

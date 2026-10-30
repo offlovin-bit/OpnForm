@@ -59,13 +59,8 @@ export const useWorkingFormStore = defineStore("working_form", {
       const actions = []
       let message = ''
       if (selfHosted) {
-        // Self-hosted: safety notice + docs
-        message = 'Custom code is disabled for safety on self-hosted. See technical docs to learn more.'
-        actions.push({
-          label: 'View docs',
-          icon: 'i-heroicons-book-open',
-          onclick: () => { if (import.meta.client) window.open('https://docs.opnform.com/deployment/enterprise-features/custom-code', '_blank') }
-        })
+        // OFFLOVIN: safety notice only, no link to OpnForm docs
+        message = 'Custom code is disabled for safety on this instance.'
       } else {
         // Cloud: require custom domain + Crisp help
         message = 'Your form needs to be using a custom domain to add a code block.'

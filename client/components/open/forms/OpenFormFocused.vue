@@ -1,17 +1,20 @@
 <template>
-  <form ref="formElement" v-if="form" @submit.prevent="" class="@container w-full relative overflow-hidden flex flex-col min-h-full" :style="focusedFormStyle">
+  <form ref="formElement" v-if="form" @submit.prevent="" class="@container w-full relative overflow-hidden flex flex-col min-h-full" :class="oflClases" :style="focusedFormStyle">
+    <!-- OFFLOVIN: índice de secciones cuando las preguntas llevan «section» -->
+    <OflLateral v-if="oflActivo" :form-manager="formManager" />
+
     <!-- Fixed fullscreen background from form cover -->
     <div v-if="form.cover_picture" class="absolute inset-0 pointer-events-none">
       <BlockMediaLayout :image="coverMedia" alt="Form cover image" />
     </div>
 
     <!-- Fixed logo in top-left -->
-    <div v-if="form.logo_picture" class="absolute top-10 left-10 z-20">
+    <div v-if="form.logo_picture && !oflActivo" class="absolute top-10 left-10 z-20">
       <img :src="form.logo_picture" :alt="form.seo_meta?.site_name ? `${form.seo_meta.site_name} logo` : 'Form logo'" class="size-8 md:size-16 object-contain">
     </div>
 
     <!-- Progressbar -->
-    <FormProgressbar :form-manager="formManager" />
+    <FormProgressbar v-if="!oflActivo" :form-manager="formManager" />
 
     <!-- Slide: question vertically centered, next/submit button slides with it -->
     <SlidingTransition 
@@ -102,6 +105,7 @@ import SideMediaSplit from './components/layouts/SideMediaSplit.vue'
 import SideMediaSmall from './components/layouts/SideMediaSmall.vue'
 import CenteredStep from './components/layouts/CenteredStep.vue'
 import FormProgressbar from './FormProgressbar.vue'
+import OflLateral from './offlovin/OflLateral.vue'
 import OpenFormButton from './OpenFormButton.vue'
 import SlidingTransition from '../../global/transitions/SlidingTransition.vue'
 import { FormMode } from '~/lib/forms/FormModeStrategy.js'
@@ -118,6 +122,10 @@ const structure = props.formManager.structure
 const state = computed(() => props.formManager.state)
 const isTemplateMode = computed(() => props.formManager?.mode?.value === FormMode.TEMPLATE)
 const isDemoMode = computed(() => props.formManager?.mode?.value === FormMode.DEMO)
+// OFFLOVIN: barra lateral de secciones y tema (form.settings.tema: marino, claro o rojo)
+const oflActivo = computed(() => (form.value?.properties || []).some(campo => !!campo?.section))
+const oflClases = computed(() => oflActivo.value ? ['ofl-shell', `ofl-tema-${form.value?.settings?.tema || 'claro'}`] : [])
+
 const focusedFormStyle = {
   minHeight: 'var(--form-focused-step-height, 100svh)'
 }

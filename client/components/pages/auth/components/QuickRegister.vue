@@ -1,9 +1,10 @@
 <template>
   <div>
     <!--  Login modal  -->
+    <!-- OFFLOVIN: brand name in the title -->
     <UModal
       v-model:open="isLoginModalOpen"
-      title="Login to OpnForm"
+      title="Login to OFFLOVIN"
       :dismissible="!appStore.isUnauthorizedError"
       @pointer-down-outside="handlePointerDownOutside"
     >

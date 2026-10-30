@@ -1,7 +1,8 @@
 export default defineNuxtPlugin((nuxtApp) => {
   const isIframe = useIsIframe()
   const router = useRouter()
-  const crispWebsiteId = useRuntimeConfig().public.crispWebsiteId
+  // OFFLOVIN: never load the Crisp support chat, whatever the env says
+  const crispWebsiteId = null
 
   // Skip initialization in iframes or if no website ID
   if (isIframe || !crispWebsiteId) {

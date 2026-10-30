@@ -168,7 +168,9 @@
       <ImageWithSettings :form="form" name="cover_picture" :label="isFocused ? 'Background' : 'Cover (~1500px)'" kind="cover" />
     </div>
 
+    <!-- OFFLOVIN: el sello ya no existe en este fork, así que no hay nada que ocultar -->
     <toggle-switch-input
+      v-if="false"
       name="no_branding"
       :form="form"
       class="mt-4"

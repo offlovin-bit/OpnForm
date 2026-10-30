@@ -144,7 +144,7 @@ const handleCallback = async () => {
     // Redirect based on user status (aligned with OAuth callback pattern)
     if (response.new_user) {
       router.push({ name: "forms-create" })
-      useAlert().success("Success! You're now registered with OIDC. Welcome to OpnForm.")
+      useAlert().success("Success! You're now registered with OIDC. Welcome to OFFLOVIN.") // OFFLOVIN: brand name
     } else {
       // For existing users, redirect to intended URL or home (aligned with OAuth)
       router.push({ name: "home" })
@@ -182,7 +182,8 @@ const handleCallback = async () => {
 
       error.value = 'We could not reconnect automatically. Return to sign in to try again, or contact your administrator if the problem continues.'
     } else if (errorMessage.includes('more than 2 users')) {
-      error.value = 'This self-hosted instance is limited to 2 users without an Enterprise license. Ask the instance admin to activate a license or remove another user.'
+      // OFFLOVIN: no seat-count / Enterprise licence wording
+      error.value = 'This instance has reached its user limit. Please contact your administrator.'
     } else if (errorMessage.includes('account with this email already exists')) {
       error.value = 'An account with this email already exists. Please contact your administrator to link your accounts.'
     } else if (errorMessage.includes('blocked')) {
@@ -208,7 +209,7 @@ const handleTwoFactorVerifiedAndRedirect = async (tokenData) => {
   // Redirect based on user status
   if (tokenData.new_user) {
     router.push({ name: "forms-create" })
-    useAlert().success("Success! You're now registered with OIDC. Welcome to OpnForm.")
+    useAlert().success("Success! You're now registered with OIDC. Welcome to OFFLOVIN.") // OFFLOVIN: brand name
   } else {
     router.push({ name: "home" })
     useAlert().success("Successfully signed in!")

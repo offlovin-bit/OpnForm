@@ -118,7 +118,7 @@ const handleCallback = async () => {
       } else {
         // Handle new user registration
         router.push({ name: "forms-create" })
-        useAlert().success("Success! You're now registered with your Google account! Welcome to OpnForm.")
+        useAlert().success("Success! You're now registered with your Google account! Welcome to OFFLOVIN.") // OFFLOVIN: brand name
       }
     } else if (response.provider) {
       // Integration flow - user was already logged in, provider was connected
@@ -172,7 +172,7 @@ const handleTwoFactorVerifiedAndRedirect = async (tokenData) => {
   // Handle redirect based on user status
   if (tokenData.new_user) {
     router.push({ name: "forms-create" })
-    useAlert().success("Success! You're now registered with your Google account! Welcome to OpnForm.")
+    useAlert().success("Success! You're now registered with your Google account! Welcome to OFFLOVIN.") // OFFLOVIN: brand name
   } else {
     if (window.opener) {
       try {

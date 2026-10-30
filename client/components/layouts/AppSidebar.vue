@@ -85,11 +85,6 @@ const sidebar = ref(null)
 
 const { sharedNavigationSections, createNavItem } = useSharedNavigation()
 
-const { current: workspace } = useCurrentWorkspace()
-const isSelfHosted = computed(() => useFeatureFlag('self_hosted'))
-const { can } = useWorkspaceAbilities()
-const { openSubscriptionModal } = useAppModals()
-
 // Check if current route matches a prefix
 function isActiveRoute(prefix) {
   if (!prefix) return false
@@ -123,31 +118,7 @@ const navigationSections = computed(() => [
         to: { name: 'templates-my-templates' },
         active: isActiveRoute('templates')
       }),
-      // Show upgrade for non-pro users
-      ...(workspace.value && !can('workspaces.multiple') && !isSelfHosted.value ? [createNavItem({
-        label: 'Upgrade to Pro',
-        icon: 'i-heroicons-sparkles-solid', 
-        onClick: () => {
-          useAmplitude().logEvent('app_sidebar_upgrade_click')
-          openSubscriptionModal({
-            plan: 'pro',
-            modal_title: 'Upgrade to Pro plan',
-          })
-        },
-        color: 'primary'
-      })] : []),
-      ...(workspace.value && can('workspaces.multiple') && !can('multi_user.roles') && !isSelfHosted.value ? [createNavItem({
-        label: 'Upgrade to Business',
-        icon: 'i-heroicons-sparkles-solid',
-        onClick: () => {
-          useAmplitude().logEvent('app_sidebar_upgrade_click')
-          openSubscriptionModal({
-            plan: 'business',
-            modal_title: 'Upgrade to Business plan',
-          })
-        },
-        color: 'primary'
-      })] : [])
+      // OFFLOVIN: no 'Upgrade to Pro' / 'Upgrade to Business' entries
     ]
   },
   // Add shared navigation sections (Product and Help)

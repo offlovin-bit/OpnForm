@@ -39,8 +39,9 @@
       <LazyUsersSettingsAccessTokens />
     </SettingsModalPage>
 
+    <!-- OFFLOVIN: no License tab -->
     <SettingsModalPage
-      v-if="canManageLicense"
+      v-if="false"
       id="license"
       label="License"
       icon="i-heroicons-check-circle"
@@ -57,8 +58,9 @@
       <LazyUsersSettingsMcp />
     </SettingsModalPage>
 
+    <!-- OFFLOVIN: no Billing tab -->
     <SettingsModalPage
-      v-if="!isSelfHosted && user && (user.has_customer_id || user.active_license)"
+      v-if="false"
       id="billing"
       label="Billing"
       icon="i-heroicons-credit-card"
@@ -83,11 +85,9 @@ const props = defineProps({
 })
 
 const { current: workspace, workspaces } = useCurrentWorkspace()
-const { data: user } = useAuth().user()
 const isSelfHosted = computed(() => useFeatureFlag('self_hosted'))
 const canManageInstanceSettings = computed(() => isSelfHosted.value && !!workspaces.value?.some(candidate => candidate.is_admin))
 const canViewMcpSettings = computed(() => !isSelfHosted.value || canManageInstanceSettings.value)
-const canManageLicense = canManageInstanceSettings
 
 // Modal state is now derived from the presence of an active tab
 const isOpen = computed({

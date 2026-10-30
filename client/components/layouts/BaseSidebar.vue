@@ -68,10 +68,17 @@
       :class="{ 'hidden': !isMobileMenuOpen, 'sm:block': true }"
     >
       <slot name="footer" :isMobileMenuOpen="isMobileMenuOpen">
-        <p class="text-xs text-neutral-400 text-center">
-          <span class="font-bold"><NuxtLink class="text-neutral-400" :to="{ name: 'home' }">OpnForm</NuxtLink></span>
-          <span class="text-neutral-500" v-if="version"> v{{ version }}</span>
-        </p>
+        <!-- OFFLOVIN: brand wordmark instead of "OpnForm vX.Y.Z" -->
+        <NuxtLink class="flex justify-center" :to="{ name: 'home' }">
+          <img src="/offlovin/logo.png" alt="OFFLOVIN" class="h-4 w-auto opacity-60">
+        </NuxtLink>
+        <!-- OFFLOVIN: oferta del código fuente que exige la AGPLv3 (§13) -->
+        <a
+          class="mt-2 block text-center text-xs text-neutral-400 hover:text-neutral-600"
+          href="https://github.com/offlovin-bit/OpnForm/tree/offlovin"
+          target="_blank"
+          rel="noopener"
+        >Código fuente (AGPLv3)</a>
       </slot>
     </div>
   </aside>
@@ -81,7 +88,6 @@
 const slots = useSlots()
 
 const isMobileMenuOpen = ref(false)
-const version = computed(() => useFeatureFlag('version'))
 
 // Check if header slot has content
 const hasHeaderContent = computed(() => {

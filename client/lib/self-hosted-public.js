@@ -34,8 +34,8 @@ export function getSelfHostedPublicRedirect(path, config = {}) {
   if (!isMarketingPage) return null
   if (httpUrl(config.rootRedirectUrl)) return httpUrl(config.rootRedirectUrl)
 
-  // Only carry the known page path. Instance queries can contain private data.
-  return `https://opnform.com${normalizedPath}?utm_source=self_hosted&utm_medium=instance&utm_campaign=public_pages`
+  // OFFLOVIN: marketing pages (pricing, enterprise...) go home instead of to opnform.com
+  return '/'
 }
 
 export function filterSelfHostedSitemapUrls(urls) {

@@ -66,14 +66,14 @@ const previewTitle = computed(() => {
   if (props.form.seo_meta?.page_title) {
     return props.form.seo_meta.page_title
   }
-  return props.form?.title ? `${props.form.title} - OpnForm` : 'OpnForm'
+  return props.form?.title || '' // OFFLOVIN: el formulario público no lleva sufijo de marca
 })
 
 const previewDescription = computed(() => {
   if (props.form.seo_meta?.page_description) {
     return props.form.seo_meta.page_description
   }
-  return 'Build beautiful, powerful forms for free with OpnForm. Unlimited submissions, rich features, and seamless integrations — fully open-source and easy to use.'
+  return '' // OFFLOVIN: sin descripción de marketing de OpnForm
 })
 
 const previewDomain = computed(() => {

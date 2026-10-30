@@ -272,7 +272,7 @@ const register = () => {
       emit('registered')
     } else {
     useAlert().success({
-      title: "Welcome to OpnForm 👋",
+      title: "Welcome to OFFLOVIN 👋", // OFFLOVIN: brand name
       ...!props.isQuick ? {description: "Time to create your first form!"} : {}
     })
     redirect()

@@ -40,8 +40,7 @@ ${resizeComment}
   });
   
   // More SDK methods: opnform.get('${this.form.slug}').setField(id, value)
-  // Docs: https://docs.opnform.com/embedding/javascript-sdk
-<\/script>`
+<\/script>` // OFFLOVIN: no "Docs: docs.opnform.com" line in the snippet
     },
     iframeCode() {
       const share_url = this.extraQueryParam

@@ -1,6 +1,7 @@
 <template>
+  <!-- OFFLOVIN: no "Discover our Pro plan" banner -->
   <UAlert
-    v-if="showBanner"
+    v-if="false && showBanner"
     class="mt-8 p-4"
     icon="i-heroicons-sparkles-solid"
     color="primary"

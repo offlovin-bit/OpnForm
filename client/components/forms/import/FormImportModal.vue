@@ -18,7 +18,8 @@
               Import form
             </h3>
             <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-              Paste a supported form URL and OpnForm will detect the provider.
+              <!-- OFFLOVIN: brand name -->
+              Paste a supported form URL and OFFLOVIN will detect the provider.
             </p>
           </div>
         </div>

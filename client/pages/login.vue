@@ -18,7 +18,8 @@
               data-testid="login-page"
               class="mt-4 text-3xl font-semibold tracking-[-1%] text-neutral-950"
             >
-              Log in to OpnForm
+              <!-- OFFLOVIN: brand name -->
+              Log in to OFFLOVIN
             </h2>
 
             <div class="mt-6">

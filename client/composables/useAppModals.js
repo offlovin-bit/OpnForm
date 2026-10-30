@@ -185,7 +185,8 @@ export const useAppModals = createSharedComposable(() => {
     // Actions
     openUserSettings: userSettings.open,
     openWorkspaceSettings: workspaceSettings.open,
-    openSubscriptionModal: subscription.open,
+    // OFFLOVIN: the plan/licence upsell modal never opens (feature gating itself is unchanged)
+    openSubscriptionModal: () => Promise.resolve(),
     closeUserSettings: userSettings.close,
     closeWorkspaceSettings: workspaceSettings.close,
     closeSubscriptionModal: subscription.close,

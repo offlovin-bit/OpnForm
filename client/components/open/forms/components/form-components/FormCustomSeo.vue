@@ -12,7 +12,7 @@
           />
           </h3>
           <p class="mt-1 text-sm text-neutral-500">
-            On Pro and higher plans, customize your page title, description, link preview image, and favicon.
+            Customize your page title, description, link preview image, and favicon.
           </p>
         </div>
       <UButton

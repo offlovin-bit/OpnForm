@@ -13,7 +13,7 @@
         <p class="instance-note"><UIcon name="i-heroicons-information-circle" /><span>Looking for a form? Use the link shared with you.</span></p>
       </div>
       <footer class="instance-footer">
-        <p>Hosted independently · Powered by <a :href="cloudUrl" target="_blank" rel="noopener noreferrer">OpnForm</a></p>
+        <!-- OFFLOVIN: no "Hosted independently · Powered by OpnForm" line -->
         <div v-if="privacyPolicyUrl || termsUrl" class="instance-legal">
           <a v-if="privacyPolicyUrl" :href="privacyPolicyUrl">Privacy policy</a>
           <a v-if="termsUrl" :href="termsUrl">Terms</a>
@@ -23,13 +23,13 @@
 
     <section class="studio" aria-labelledby="studio-title">
       <img src="/img/self-hosted/studio-background.webp" alt="" class="studio-background" width="1122" height="1402" decoding="async" />
-      <a :href="cloudUrl" target="_blank" rel="noopener noreferrer" class="studio-brand">
-        <img src="/img/logo.svg" alt="" />
-        <span>OpnForm</span>
-      </a>
+      <!-- OFFLOVIN: our wordmark (made white by CSS), no link to opnform.com -->
+      <span class="studio-brand">
+        <img src="/offlovin/logo.png" alt="OFFLOVIN" />
+      </span>
       <div class="studio-copy">
         <h2 id="studio-title">Your forms.<br />Your way.</h2>
-        <p>The open-source form builder.</p>
+        <!-- OFFLOVIN: no "The open-source form builder." tagline -->
       </div>
       <div class="studio-scene" aria-hidden="true">
         <div class="studio-cluster">
@@ -56,11 +56,8 @@
           />
         </div>
       </div>
-      <div class="studio-bottom">
-        <a :href="cloudUrl" target="_blank" rel="noopener noreferrer" class="studio-discover">
-          Build your own forms with OpnForm <UIcon name="i-heroicons-arrow-up-right" />
-        </a>
-      </div>
+      <!-- OFFLOVIN: no "Build your own forms with OpnForm" link -->
+      <div class="studio-bottom" />
     </section>
   </main>
 </template>
@@ -68,7 +65,6 @@
 <script setup>
 const instanceHost = useRequestURL().host
 const { name, logoUrl, privacyPolicyUrl, termsUrl } = useSelfHostedPresentation()
-const cloudUrl = 'https://opnform.com?utm_source=self_hosted&utm_medium=instance&utm_campaign=welcome_split'
 </script>
 
 <style scoped>
@@ -117,7 +113,8 @@ const cloudUrl = 'https://opnform.com?utm_source=self_hosted&utm_medium=instance
   color: #fff;
 }
 
-.studio-brand img { width: 38px; height: 38px; filter: brightness(0) invert(1); }
+/* OFFLOVIN: the wordmark is wide, so fix the height only */
+.studio-brand img { width: auto; height: 38px; filter: brightness(0) invert(1); }
 .studio-copy { margin-top: clamp(28px, 5.5svh, 58px); }
 .studio-copy h2 {
   color: #fff;
@@ -186,7 +183,8 @@ const cloudUrl = 'https://opnform.com?utm_source=self_hosted&utm_medium=instance
 .instance-address { display: flex; align-items: center; gap: 20px; font-size: clamp(16px, 1.28vw, 19px); font-weight: 500; color: #788296; }
 .instance-symbol { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 54px; height: 54px; border-radius: 14px; background: #f1f2f6; color: #111827; }
 .instance-symbol .iconify { width: 28px; height: 28px; }
-.instance-symbol img { width: 30px; height: 30px; object-fit: contain; }
+/* OFFLOVIN: our icon is a full-bleed app icon, so it fills the rounded tile */
+.instance-symbol img { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; }
 .instance-identity { display: flex; min-width: 0; flex-direction: column; gap: 3px; overflow-wrap: anywhere; }
 .instance-name { color: #10131b; }
 .instance h1 { color: #10131b; margin-top: clamp(24px, 3.4svh, 36px); font-size: clamp(34px, min(3.37vw, 4.8svh), 53px); line-height: 1.23; font-weight: 600; letter-spacing: -2px; }

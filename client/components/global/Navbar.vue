@@ -7,11 +7,8 @@
             :to="{ name: user ? 'home' : 'index' }"
             class="shrink-0 font-semibold hover:no-underline flex items-center"
           >
-            <img :src="isSelfHosted ? instanceLogoUrl : '/img/logo.svg'" :alt="isSelfHosted ? instanceName : 'OpnForm'" class="w-6 h-6 object-contain" />
-            <span
-              class="ml-2 max-w-48 truncate text-md hidden sm:inline text-gray-950 dark:text-white"
-              >{{ isSelfHosted ? instanceName : 'OpnForm' }}</span
-            >
+            <!-- OFFLOVIN: wordmark (sun + name) instead of OpnForm logo and name -->
+            <img src="/offlovin/logo.png" alt="OFFLOVIN" class="h-6 w-auto object-contain" />
           </NuxtLink>
           <WorkspaceDropdown v-if="user" class="ml-6">
             <template #default="{ workspace }">
@@ -88,7 +85,9 @@
             <span v-else>Pricing</span>
           </NuxtLink>
 
+          <!-- OFFLOVIN: no link to OpnForm docs -->
           <NuxtLink
+            v-if="false"
             :href="opnformConfig.links.tech_docs"
             :class="navLinkClasses"
             target="_blank"
@@ -191,7 +190,6 @@ const { current: workspace } = useCurrentWorkspace()
 const { data: user } = useAuth().user()
 const isIframe = useIsIframe()
 const isSelfHosted = computed(() => useFeatureFlag("self_hosted"))
-const { name: instanceName, logoUrl: instanceLogoUrl } = useSelfHostedPresentation()
 const { workspaceIsPaid } = useBillingUpsell()
 const route = useRoute()
 

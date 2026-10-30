@@ -10,7 +10,9 @@
       </div>
 
       <div class="flex shrink-0 items-center gap-2">
+        <!-- OFFLOVIN: no link to OpnForm API docs -->
         <UButton
+          v-if="false"
           label="API Docs"
           icon="i-heroicons-book-open"
           variant="outline"
@@ -116,7 +118,8 @@
             <div>
               <h4 class="text-sm font-medium text-neutral-900">Rate Limits</h4>
               <p class="text-sm text-neutral-600 mt-1">
-                API requests are rate limited. <a href="https://docs.opnform.com/api-reference/introduction#rate-limits" target="_blank" class="text-blue-500 hover:underline">Check our documentation</a> for current limits and best practices.
+                <!-- OFFLOVIN: no link to OpnForm docs -->
+                API requests are rate limited.
               </p>
             </div>
           </div>

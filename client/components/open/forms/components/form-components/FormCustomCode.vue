@@ -21,7 +21,9 @@
           </p>
         </div>
         <div class="flex gap-2">
+          <!-- OFFLOVIN: sin enlace a la documentación de OpnForm -->
           <UButton
+            v-if="false"
             label="SDK Docs"
             icon="i-heroicons-code-bracket"
             variant="outline"
@@ -111,7 +113,7 @@ const customCodeHelp = computed(() => {
   }
   // In self-hosted mode with flag disabled (and no custom domain), show safety notice with docs link
   if (isSelfHosted.value && !allowSelfHosted && !hasCustomDomain) {
-    return 'Custom code is disabled for safety on self-hosted. Enable via CUSTOM_CODE_ENABLE_SELF_HOSTED=true. See technical docs: https://docs.opnform.com/deployment/enterprise-features/custom-code'
+    return 'Custom code is disabled for safety on self-hosted. Enable via CUSTOM_CODE_ENABLE_SELF_HOSTED=true.'
   }
   return 'Custom code requires to be using a custom domain.'
 })

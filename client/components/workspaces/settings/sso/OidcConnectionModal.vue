@@ -132,8 +132,9 @@
               <p class="text-xs uppercase tracking-wide text-neutral-500">Field Mappings</p>
             </template>
             <div class="space-y-4 pt-2">
+              <!-- OFFLOVIN: brand name -->
               <p class="text-xs text-neutral-500">
-                Map IdP claim field names to OpnForm fields. Use this if your IdP uses different field names (e.g., "preferred_username" for email).
+                Map IdP claim field names to OFFLOVIN fields. Use this if your IdP uses different field names (e.g., "preferred_username" for email).
               </p>
               
               <div class="space-y-2">

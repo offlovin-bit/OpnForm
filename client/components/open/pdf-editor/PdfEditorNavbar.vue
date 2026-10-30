@@ -145,11 +145,11 @@
           </p>
         </div>
 
-        <!-- Remove Branding -->
+        <!-- Remove Branding (OFFLOVIN: help text without "OpnForm") -->
         <ToggleSwitchInput
           v-model="pdfTemplate.remove_branding"
           name="remove_branding"
-          help="Hide 'PDF generated with OpnForm' footer"
+          help="Hide the branding footer in generated PDFs"
         >
           <template #label>
             <span class="text-sm">

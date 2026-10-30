@@ -29,11 +29,8 @@
           Add one email per line
         </span>
         <span v-else>
-          You can only send email notification to your own email address. 
-          Please <a
-            class="underline cursor-pointer"
-            @click="openSubscriptionModal"
-          >upgrade to the Pro plan</a> to send to other email addresses.
+          <!-- OFFLOVIN: no "upgrade to the Pro plan" link -->
+          You can only send email notification to your own email address.
         </span>
         </InputHelp>
       </template>
@@ -107,8 +104,9 @@
         </div>
       </template>
       <div class="border-t dark:border-neutral-700 p-4 space-y-4">
+        <!-- OFFLOVIN: no "part of the Business plan / Upgrade to Business" notice -->
         <div
-          v-if="!canUseAdvancedBranding"
+          v-if="false && !canUseAdvancedBranding"
           class="rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-sm text-blue-900 dark:border-blue-900/60 dark:bg-blue-950/40 dark:text-blue-100"
         >
           Email appearance customisation is part of the Business plan.
@@ -306,7 +304,7 @@ function openSubscriptionModal () {
 onBeforeMount(() => {
   for (const [keyname, defaultValue] of Object.entries({
     send_to: user.value.email || '',
-    sender_name: "OpnForm",
+    sender_name: "OFFLOVIN", // OFFLOVIN: default sender name
     subject: "We saved your answers",
     email_content: "Hello there 👋 <br>This is a confirmation that your submission was successfully saved.",
     include_submission_data: true,

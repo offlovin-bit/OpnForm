@@ -17,7 +17,9 @@
         </div>
       </div>
 
+      <!-- OFFLOVIN: no link to OpnForm docs -->
       <UButton
+        v-if="false"
         to="https://docs.opnform.com/integrations/mcp"
         target="_blank"
         label="Setup guide"
@@ -231,14 +233,14 @@ const snippetOptions = [
     key: 'cursor',
     label: 'Cursor',
     icon: 'i-heroicons-cursor-arrow-rays',
-    description: 'Install OpnForm directly in Cursor, or copy the JSON configuration below.',
+    description: 'Install OFFLOVIN directly in Cursor, or copy the JSON configuration below.', // OFFLOVIN: brand name
     installLabel: 'Install in Cursor',
   },
   {
     key: 'claude_code',
     label: 'Claude Code',
     icon: 'i-heroicons-chat-bubble-left-right',
-    description: 'Run this command, then use /mcp in Claude Code to authenticate with OpnForm.',
+    description: 'Run this command, then use /mcp in Claude Code to authenticate with OFFLOVIN.', // OFFLOVIN: brand name
   },
   {
     key: 'chatgpt',
@@ -284,14 +286,15 @@ const sharedSettingsUrl = computed(() => {
 const isMcpAvailable = computed(() => settings.value?.available === true)
 const isSelfHosted = computed(() => settings.value?.self_hosted !== false)
 
+// OFFLOVIN: brand name in user-visible texts below
 const pageDescription = computed(() => {
   return isSelfHosted.value
-    ? 'Connect AI assistants directly to this OpnForm instance.'
-    : 'Connect AI assistants to OpnForm Cloud.'
+    ? 'Connect AI assistants directly to this OFFLOVIN instance.'
+    : 'Connect AI assistants to OFFLOVIN.'
 })
 
 const statusTitle = computed(() => {
-  if (!isSelfHosted.value) return 'OpnForm MCP is ready'
+  if (!isSelfHosted.value) return 'OFFLOVIN MCP is ready'
   if (!settings.value?.ready) return 'Server setup required'
   return isMcpAvailable.value ? 'MCP is available' : 'Ready to connect'
 })
@@ -299,7 +302,7 @@ const statusTitle = computed(() => {
 const statusDescription = computed(() => {
   if (!isSelfHosted.value) return 'Create private drafts without signing in, or connect your account to manage forms and read submissions.'
   if (!settings.value?.ready) return 'Resolve the prerequisites below before exposing the MCP endpoint.'
-  if (isMcpAvailable.value) return 'Connected AI assistants can create and manage forms and read submissions using your OpnForm account.'
+  if (isMcpAvailable.value) return 'Connected AI assistants can create and manage forms and read submissions using your OFFLOVIN account.'
   return 'OAuth is ready. Enable MCP when you want this instance to accept agent connections.'
 })
 

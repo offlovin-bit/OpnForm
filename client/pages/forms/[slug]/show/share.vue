@@ -80,7 +80,9 @@
               Embed Form
             </h2>
             <div class="flex gap-2">
+              <!-- OFFLOVIN: no link to OpnForm docs -->
               <UButton
+                v-if="false"
                 label="SDK Docs"
                 icon="i-heroicons-code-bracket"
                 variant="outline"

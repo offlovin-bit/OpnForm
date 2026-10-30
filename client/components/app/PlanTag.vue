@@ -1,6 +1,7 @@
 <template>
+  <!-- OFFLOVIN: plan badges (PRO, BUSINESS, ENTERPRISE...) never render -->
   <UTooltip
-    v-if="shouldDisplayTag"
+    v-if="false && shouldDisplayTag"
     :text="tooltipText"
     class="inline normal-case"
   >

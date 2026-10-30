@@ -18,8 +18,9 @@
               <p class="text-sm font-medium text-neutral-800 truncate">
                 {{ workspace.name }}
               </p>
+              <!-- OFFLOVIN: no plan name ("Pro Plan"), only the member count -->
               <p class="text-xs text-neutral-500">
-                {{ workspacePlanText }} • {{ memberCountText }}
+                {{ memberCountText }}
               </p>
             </div>
           </div>
@@ -117,7 +118,7 @@ defineProps({
 })
 
 const { openSubscriptionModal } = useAppModals()
-const { getTierDisplayName, userCanAccessTier } = useBillingUpsell()
+const { userCanAccessTier } = useBillingUpsell()
 const router = useRouter()
 const route = useRoute()
 const appStore = useAppStore()
@@ -136,12 +137,6 @@ const showInviteUserModal = ref(false)
 
 // Dropdown state
 const isDropdownOpen = ref(false)
-
-// Computed text for workspace plan
-const workspacePlanText = computed(() => {
-  if (!workspace.value) return ''
-  return `${getTierDisplayName(workspace.value.plan_tier)} Plan`
-})
 
 // Computed text for member count
 const memberCountText = computed(() => {

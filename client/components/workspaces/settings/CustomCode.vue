@@ -10,7 +10,9 @@
         </p>
       </div>
       <div class="flex gap-2">
+        <!-- OFFLOVIN: no link to OpnForm docs -->
         <UButton
+          v-if="false"
           label="SDK Docs"
           icon="i-heroicons-code-bracket"
           variant="outline"
@@ -28,8 +30,9 @@
       </div>
     </div>
 
+    <!-- OFFLOVIN: no licence/plan upsell callout -->
     <UAlert
-      v-if="!canAccessCustomCode"
+      v-if="false && !canAccessCustomCode"
       icon="i-heroicons-lock-closed"
       class="mb-4"
       color="warning"
@@ -164,9 +167,11 @@ const customCodeHelp = computed(() => {
     return 'Saves changes and visit any form page to test. Workspace code is applied to all forms in this workspace.'
   }
   if (isSelfHosted.value && !allowSelfHosted.value && !hasCustomDomain.value) {
-    return 'Custom code is disabled for safety on self-hosted. Enable via CUSTOM_CODE_ENABLE_SELF_HOSTED=true. See technical docs: https://docs.opnform.com/deployment/enterprise-features/custom-code'
+    // OFFLOVIN: no link to OpnForm docs
+    return 'Custom code is disabled for safety on this instance. Enable via CUSTOM_CODE_ENABLE_SELF_HOSTED=true.'
   }
-  return 'Custom code requires a Pro plan and a custom domain configured for this workspace.'
+  // OFFLOVIN: no plan names
+  return 'Custom code is not available for this workspace.'
 })
 
 const saveChanges = () => {

@@ -122,7 +122,7 @@
           Submission Retention
         </h4>
         <p class="text-neutral-500 text-sm mb-4">
-          Control how long submitted data remains stored in OpnForm.
+          Control how long submitted data remains stored.
         </p>
 
         <ToggleSwitchInput

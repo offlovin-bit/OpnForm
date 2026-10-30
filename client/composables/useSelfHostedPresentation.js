@@ -4,8 +4,9 @@ export function useSelfHostedPresentation() {
   const config = useRuntimeConfig().public
 
   return {
-    name: config.selfHostedName || 'OpnForm',
-    logoUrl: httpUrl(config.selfHostedLogoUrl) || '/img/logo.svg',
+    // OFFLOVIN: our name and icon by default
+    name: config.selfHostedName || 'OFFLOVIN',
+    logoUrl: httpUrl(config.selfHostedLogoUrl) || '/offlovin/icon.png',
     privacyPolicyUrl: httpUrl(config.selfHostedPrivacyPolicyUrl),
     termsUrl: httpUrl(config.selfHostedTermsUrl),
   }

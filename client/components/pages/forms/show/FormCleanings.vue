@@ -1,7 +1,8 @@
 <template>
+  <!-- OFFLOVIN: no "Upgrade to unlock all features" banner -->
   <VTransition>
     <section
-      v-if="shouldShowWarning"
+      v-if="false && shouldShowWarning"
       class="flex gap-3 p-4 bg-blue-50 dark:bg-blue-950 rounded-lg border border-blue-300 border-solid max-md:flex-wrap mb-2"
       aria-labelledby="notification-title"
     >

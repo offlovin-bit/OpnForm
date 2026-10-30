@@ -27,6 +27,7 @@
         @blur="checkOidcOptions"
       />
 
+      <!-- OFFLOVIN: brand name in the description -->
       <UAlert
         v-if="isLinkingExistingAccount"
         class="mt-3"
@@ -34,7 +35,7 @@
         color="primary"
         variant="subtle"
         title="Link your existing account"
-        description="Sign in once with your existing OpnForm password to link it to your SSO account."
+        description="Sign in once with your existing OFFLOVIN password to link it to your SSO account."
       />
 
       <UAlert

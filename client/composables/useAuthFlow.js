@@ -48,7 +48,7 @@ export const useAuthFlow = () => {
       if (tokenData.appsumo_license === false) {
         useAlert().error(
           "Invalid AppSumo license. This probably happened because this license was already" +
-          " attached to another OpnForm account. Please contact support."
+          " attached to another OFFLOVIN account. Please contact support." // OFFLOVIN: brand name
         )
       } else if (tokenData.appsumo_license === true) {
         useAlert().success(

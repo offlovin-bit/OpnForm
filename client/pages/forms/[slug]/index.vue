@@ -280,6 +280,10 @@ const headLinks = computed(() => {
         href: getFontUrl.value
     })
   }
+  // OFFLOVIN: sin favicon propio, el formulario usa su logo (así el cliente no ve la marca de quien lo aloja)
+  if (!pageMeta.value.page_favicon && form.value?.logo_picture) {
+    links.push({ rel: 'icon', href: form.value.logo_picture })
+  }
   if (pageMeta.value.page_favicon) {
     links.push({
         rel: 'icon', type: 'image/x-icon',
@@ -360,13 +364,8 @@ useHead({
     class: getHtmlClass.value,
     lang: () => form.value?.language || 'en'
   },
-  titleTemplate: (titleChunk) => {
-    if (pageMeta.value.page_title) {
-      // Disable template if custom SEO title
-      return titleChunk
-    }
-    return titleChunk ? `${titleChunk} - OpnForm` : 'OpnForm'
-  },
+  // OFFLOVIN: respondents see only the form title, no brand suffix
+  titleTemplate: (titleChunk) => titleChunk,
   link: headLinks.value,
   meta: pageMeta.value.page_favicon ? [
     {

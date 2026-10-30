@@ -100,6 +100,7 @@ useOpnSeoMeta({
       : "Our collection of beautiful templates to create your own forms!",
 })
 useHead({
+  // OFFLOVIN: tab title suffix
   titleTemplate: (titleChunk) => {
     // Disable title template for longer titles
     if (
@@ -108,10 +109,10 @@ useHead({
       !type.value.meta_title.toLowerCase().includes("opnform")
     ) {
       return titleChunk
-        ? `${titleChunk} - OpnForm`
-        : "Form Templates - OpnForm"
+        ? `${titleChunk} - OFFLOVIN`
+        : "Form Templates - OFFLOVIN"
     }
-    return titleChunk ? titleChunk : "Form Templates - OpnForm"
+    return titleChunk ? titleChunk : "Form Templates - OFFLOVIN"
   },
 })
 </script>

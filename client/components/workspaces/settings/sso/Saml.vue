@@ -24,7 +24,8 @@
         No SAML connections yet
       </h4>
       <p class="text-neutral-500 mb-6 max-w-md mx-auto">
-        SAML setup is not implemented in this version of OpnForm.
+        <!-- OFFLOVIN: brand name -->
+        SAML setup is not implemented in this version of OFFLOVIN.
       </p>
     </div>
   </div>

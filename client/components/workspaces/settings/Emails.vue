@@ -20,8 +20,9 @@
       />
     </div>
 
+    <!-- OFFLOVIN: no Enterprise licence note / OpnForm docs link, and no plan upsell below -->
     <UAlert
-      v-if="isSelfHosted"
+      v-if="false && isSelfHosted"
       icon="i-heroicons-information-circle"
       color="info"
       variant="subtle"
@@ -38,7 +39,7 @@
     />
 
     <UAlert
-      v-if="!isSelfHosted && !canAccessSmtp"
+      v-if="false && !isSelfHosted && !canAccessSmtp"
       icon="i-heroicons-user-group-20-solid"
       class="mb-4"
       color="warning"
