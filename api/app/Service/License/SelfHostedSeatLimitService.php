@@ -146,7 +146,8 @@ class SelfHostedSeatLimitService
 
     private function shouldEnforceLimit(): bool
     {
-        return (bool) config('app.self_hosted');
+        // OFFLOVIN: sin tope de usuarios en esta instalación (código AGPLv3; no afecta a api/app/Enterprise)
+        return false;
     }
 
     private function hasValidLicense(): bool

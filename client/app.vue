@@ -23,6 +23,8 @@
         <LazyVendorClarity v-if="vendorsReady && authStore.token && config.public.clarityProjectId" />
         <!-- OFFLOVIN: no FeatureBase changelog/feedback widget -->
         <LazyVendorFeatureBase v-if="false && vendorsReady && authStore.token && config.public.featureBaseOrganization" />
+        <!-- OFFLOVIN: colores del espacio actual -->
+        <OflMarcaWorkspace v-if="authStore.token" />
         <LazyQuickRegister v-if="appStore.quickLoginModal || appStore.quickRegisterModal || appStore.isUnauthorizedError" />
       </ClientOnly>
     </div>
@@ -30,6 +32,7 @@
 </template>
 
 <script setup>
+import OflMarcaWorkspace from '~/components/offlovin/OflMarcaWorkspace.vue'
 const vendorsReady = ref(false)
 let vendorTimer
 onMounted(() => { vendorTimer = setTimeout(() => { vendorsReady.value = true }, 1500) })

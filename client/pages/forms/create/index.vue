@@ -104,7 +104,8 @@ onMounted(() => {
   }
 
   const { hasFeature } = usePlanFeatures()
-  const baseForm = initForm({ workspace_id: workspace.value?.id, no_branding: hasFeature('branding.removal') }, true)
+  // OFFLOVIN: los formularios nuevos heredan la marca del espacio (workspace.settings.marca.formulario)
+  const baseForm = initForm({ workspace_id: workspace.value?.id, no_branding: hasFeature('branding.removal'), ...(workspace.value?.settings?.marca?.formulario || {}) }, true)
   const initialState = resolveCreateFormState(baseForm.data(), {
     importedFormData: localStorage.getItem('importedFormData'),
     templateStructure: template?.structure,

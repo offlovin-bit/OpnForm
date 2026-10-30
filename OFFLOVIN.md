@@ -17,4 +17,9 @@ Cambios (30-oct-2026, segunda tanda):
 - Modo focused: barra lateral con las secciones del cuestionario y temas de color (`client/components/open/forms/offlovin/OflLateral.vue`, enganchada en `OpenFormFocused.vue`). Cada pregunta puede llevar una clave `section`; el tema sale de `settings.tema` (`marino`, `claro`, `rojo`).
 - `docker/nginx.conf`: ruta `/marcas/` para servir logos desde una carpeta montada.
 
+Cambios (30-oct-2026, tercera tanda):
+
+- `api/app/Service/License/SelfHostedSeatLimitService.php`: sin tope de usuarios en la instalación (código AGPLv3).
+- Marca por espacio: si `workspace.settings.marca.color` existe, el panel usa ese color (`client/components/offlovin/OflMarcaWorkspace.vue`, montado en `app.vue`), y los formularios nuevos del espacio heredan `workspace.settings.marca.formulario` (`client/pages/forms/create/index.vue`).
+
 No se usa ni se modifica nada de `api/app/Enterprise`, que tiene su propia licencia.
