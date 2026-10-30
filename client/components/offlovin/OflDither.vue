@@ -36,10 +36,10 @@ float bayer8(vec2 a){ return bayer4(0.5 * a) * 0.25 + bayer2(a); }
 
 vec3 ramp(float t){
   vec3 carbon = vec3(0.059, 0.067, 0.075);
-  vec3 violet = vec3(0.545, 0.541, 0.945);
-  vec3 pink   = vec3(1.000, 0.161, 0.471);
-  vec3 orchid = vec3(1.000, 0.561, 0.965);
-  vec3 cream  = vec3(0.953, 0.937, 0.906);
+  vec3 violet = vec3(0.157, 0.231, 0.761);
+  vec3 pink   = vec3(0.141, 0.482, 1.000);
+  vec3 orchid = vec3(0.420, 0.776, 0.949);
+  vec3 cream  = vec3(0.906, 0.957, 0.984);
   t = clamp(t, 0.0, 1.0);
   if (t < 0.28) return mix(carbon, violet, t / 0.28);
   if (t < 0.55) return mix(violet, pink, (t - 0.28) / 0.27);
@@ -97,14 +97,14 @@ void main(){
   // Bloque crema con grano que pasa a rosa
   float bA = box(n, vec4(0.0, 0.43, 0.52, 0.53));
   float vA = smoothstep(0.05, 0.60, n.x / 0.52 + drift);
-  vec3 cA = mix(vec3(0.953, 0.937, 0.906), vec3(1.0, 0.561, 0.965), vA);
+  vec3 cA = mix(vec3(0.906, 0.957, 0.984), vec3(0.420, 0.776, 0.949), vA);
   cA = dith3(cA - (hash(dp) - 0.5) * 0.10, th, 6.0);
 
   // Banda ancha crema a orquídea, lisa con dithering fino
   float bB = box(n, vec4(0.0, 0.31, 0.72, 0.43));
   float vB = clamp(n.x / 0.72 + drift2, 0.0, 1.0);
-  vec3 cB = mix(vec3(0.953, 0.937, 0.906), vec3(1.0, 0.561, 0.965), smoothstep(0.08, 0.55, vB));
-  cB = mix(cB, vec3(0.988, 0.47, 0.95), smoothstep(0.55, 1.0, vB));
+  vec3 cB = mix(vec3(0.906, 0.957, 0.984), vec3(0.420, 0.776, 0.949), smoothstep(0.08, 0.55, vB));
+  cB = mix(cB, vec3(0.302, 0.600, 0.988), smoothstep(0.55, 1.0, vB));
   cB = dith3(cB, th, 10.0);
 
   // Barras verticales rosas
@@ -116,14 +116,14 @@ void main(){
   // Bloque bajo: violeta, rosa y crema en semitono fino
   float bC = box(n, vec4(0.0, 0.0, 0.56, 0.17));
   float vC = clamp(n.x / 0.56 - drift, 0.0, 1.0);
-  vec3 cC = vC < 0.5 ? mix(vec3(0.545, 0.541, 0.945), vec3(1.0, 0.161, 0.471), vC * 2.0)
-                     : mix(vec3(1.0, 0.161, 0.471), vec3(0.953, 0.937, 0.906), (vC - 0.5) * 2.0);
+  vec3 cC = vC < 0.5 ? mix(vec3(0.157, 0.231, 0.761), vec3(0.141, 0.482, 1.000), vC * 2.0)
+                     : mix(vec3(0.141, 0.482, 1.000), vec3(0.906, 0.957, 0.984), (vC - 0.5) * 2.0);
   float fine = step(0.5, fract(px.x / (3.0 * uDpr)) ) * step(0.5, fract(px.y / (3.0 * uDpr)));
   cC = dith3(cC * (0.86 + 0.14 * fine), th, 5.0);
 
   // Relleno entre bloques: orquídea suave
   float bD = box(n, vec4(0.0, 0.17, 0.72, 0.31));
-  vec3 cD = dith3(mix(vec3(1.0, 0.561, 0.965), vec3(1.0, 0.70, 0.98), smoothstep(0.0, 1.0, n.x / 0.72 - drift2)), th, 8.0);
+  vec3 cD = dith3(mix(vec3(0.420, 0.776, 0.949), vec3(0.639, 0.863, 0.976), smoothstep(0.0, 1.0, n.x / 0.72 - drift2)), th, 8.0);
 
   if (uCompact > 0.5) {
     // Móvil: solo el semitono y una banda baja a todo el ancho
