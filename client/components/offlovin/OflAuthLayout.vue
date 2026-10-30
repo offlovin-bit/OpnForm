@@ -39,6 +39,7 @@ useHead({
   min-height: 100svh;
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
   font-family: Figtree, ui-sans-serif, system-ui, sans-serif;
   color: var(--ofl-tinta);
   background: #ffffff;
@@ -75,7 +76,7 @@ useHead({
 }
 
 @media (min-width: 1024px) {
-  .ofl-auth { grid-template-columns: minmax(440px, 44%) 1fr; }
+  .ofl-auth { grid-template-columns: minmax(440px, 44%) 1fr; grid-template-rows: 1fr; }
   .ofl-auth-marca {
     position: sticky;
     top: 0;
