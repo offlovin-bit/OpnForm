@@ -23,20 +23,6 @@
     </div>
   </OflAuthLayout>
 </template>
-            <div
-              v-else
-              class="mt-6 rounded-3xl border border-amber-300 bg-amber-50 p-4 text-sm leading-6 text-amber-700"
-            >
-              Registration is not allowed in self host mode.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <OpenFormFooter :show-cta="false" />
-  </div>
-</template>
 
 <script setup>
 import RegisterForm from "~/components/pages/auth/components/RegisterForm.vue"
